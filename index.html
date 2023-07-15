@@ -2,10 +2,10 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8" />                   
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>동기부여 전문가 나이스한AI</title>
+    <title>MBTI 맞춤형 동기부여 전문가 나이스한AI</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -19,11 +19,47 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-        }
+            background: linear-gradient(to bottom, #ffffff,#5b5b5b);
+            }
 
         .assistant {
             color: blue;
+        }
+
+        .birthday-block label{ 
+        width: 662px;
+        height: 20px;
+        background-color: #5b5b5b;
+        color: #ffffff;
+        /* border: 1px solid #ff00ea; */
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        }
+        /* background-color: #4caf50;
+        color: #ffffff;
+        display: block;
+        text-align: center;
+        margin: auto;
+        } */
+
+        .MBTI-block label {
+        width: 662px;
+        height: 20px;
+        background-color: #5b5b5b;
+        color: #ffffff;
+        /* border: 1px solid #ff00ea; */
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+                 /* background-color: #4caf50;
+            color: #ffffff;
+        display: block;
+        text-align: center;
+        margin: auto;
+        } */
         }
 
         .chat-container {
@@ -107,7 +143,34 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
         }
+
+        .intro-container button {
+        margin-top: 10px;
+        font-size: 20px;
+        text-align: center;
+        }
+
+        .intro-container input[type="date"],
+        .intro-container select {
+        font-size: 15px;
+        text-align: center;
+        }
+
+        .intro-container select {
+         text-align: center;
+        }
+
+        #MBTI {
+        font-size: 30px;
+        text-align: center;
+        }
+
+        /* .intro-container input[type="MBTI"],
+        .intro-container select {
+        font-size: 15px;
+        } */
 
         .intro-container img {
             width: 50%;
@@ -118,7 +181,7 @@
             font-size: 25px;
             text-align: center;
         }
-
+        
         .kakao-ad {
             display: flex;
             justify-content: center;
@@ -133,12 +196,19 @@
 
 <body>
     <div id="intro" class="intro-container">
-        <h1> 동기부여 드리겠습니다. </h1>
+        <h1> MBTI 맞춤형 동기부여 드리겠습니다. </h1>
         <img src="jumbo.jpeg" alt="jumbo">
-        <label for="date">생년월일</label>
+       <div class="birthday-block">
+            <label for="date">생년월일</label>
+            <input id="date" type="date">
+        </div>
+        <div class="MBTI-block">
+            <label for="MBTI">MBTI</label>
+            <select id="MBTI" name="MBTI">
+        <!-- <label for="date">생년월일</label>
         <input id="date" type="date">
         <label for="MBTI">MBTI</label>
-        <select id="MBTI" name="MBTI">
+        <select id="MBTI" name="MBTI"> -->
             <option value="">모름</option>
             <option value="ISTJ">ISTJ - 청렴결백한 검사관</option>
             <option value="ISFJ">ISFJ - 용감한 수호자</option>
@@ -157,15 +227,16 @@
             <option value="ENFJ">ENFJ - 정의로운 사회운동가</option>
             <option value="ENTJ">ENTJ - 대담한 지도자</option>
         </select>
-        <button onclick="start()">동기부여받기 </button>
+        </div>
+        <button onclick="start()">동기부여받기</button>
     </div>
 
     <div id="chat" class="chat-container" style="display: none;">
         <div class="chat-box">
-            <div class="chat-header">동기부여 전문가 나이스한AI</div>
+            <div class="chat-header">MBTI 동기부여 전문가 나이스한AI</div>
             <div class="chat-body" id="chat-messages">
                 <div class="message">
-                    <p class="message-text">동기부여 문의주세요!.</p>
+                    <p class="message-text">동기부여 필요하면 말해주세요!.</p>
                 </div>
             </div>
         </div>
@@ -174,7 +245,7 @@
         </div>
         <div class="chat-footer">
             <input type="text" placeholder="Enter your message" id="message-input" />
-            <button id="send-button" onclick="spinner()">보내기</button>
+            <button id="send-button" onclick="spinner()">뿜뿜</button>
         </div>
 
     </div>
@@ -237,8 +308,8 @@
             appendMessage(message, 'user');
             messageInput.value = ' ';
             try {
-                //const response = await fetch('http://localhost:3000/motivationTell', {
-                const response = await fetch('https://jale2mk62ogazwpeflirwfstt40gqpzk.lambda-url.ap-northeast-2.on.aws/motivationTell', {
+                const response = await fetch('http://localhost:3000/motivationTell', {
+                //const response = await fetch('https://jale2mk62ogazwpeflirwfstt40gqpzk.lambda-url.ap-northeast-2.on.aws/motivationTell', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
