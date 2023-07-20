@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />                   
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MBTI 맞춤형 동기부여 전문가 나이스한AI</title>
+    <title>동기부여 전문가 나이스한AI</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -196,7 +196,7 @@
 
 <body>
     <div id="intro" class="intro-container">
-        <h1> MBTI 맞춤형 동기부여 드리겠습니다. </h1>
+        <h1> 맞춤형 동기부여 드리겠습니다. </h1>
         <img src="jumbo.jpeg" alt="jumbo">
        <div class="birthday-block">
             <label for="date">생년월일</label>
@@ -233,10 +233,10 @@
 
     <div id="chat" class="chat-container" style="display: none;">
         <div class="chat-box">
-            <div class="chat-header">MBTI 동기부여 전문가 나이스한AI</div>
+            <div class="chat-header">동기부여 전문가 나이스한AI</div>
             <div class="chat-body" id="chat-messages">
                 <div class="message">
-                    <p class="message-text">동기부여 필요하면 말해주세요!.</p>
+                    <p class="message-text">동기부여 필요하면 말해주세요!</p>
                 </div>
             </div>
         </div>
@@ -331,14 +331,14 @@
                 astrologerMessage.classList.add('chat-message');
                 astrologerMessage.innerHTML = `<p class='assistant'>${data.assistant}</p>`;
                 const p = document.createElement('p');
-                p.innerHTML = '추가로 링크를 눌러 작은 격려를 배풀어주시면 더욱 더 좋은 동기부여를 받으실겁니다. => ';
+                p.innerHTML = '링크를 통해 추가로 동기부여 동영상을 시청하시면 더 좋은 에너지를 받으실겁니다. => ';
                 p.classList.add("assistant");
                 const link = document.createElement('a');
-                link.href = 'https://toss.me/niceai';
-                link.innerHTML = '격려 보내기';
+                link.href = 'https://www.youtube.com/channel/UC8aSrG-Ue6SWTyVrsk4LH2Q';
+                link.innerHTML = '에너지 받기';
                 p.appendChild(link);
                 astrologerMessage.appendChild(p);
-                "<p> <a href='https://toss.me/niceai'>격려 보내기</a></p>";
+                "<p> <a href='https://www.youtube.com/channel/UC8aSrG-Ue6SWTyVrsk4LH2Q'>에너지 받기받기</a></p>";
                 chatMessages.appendChild(astrologerMessage);
                 
                 // console.log(data);          
